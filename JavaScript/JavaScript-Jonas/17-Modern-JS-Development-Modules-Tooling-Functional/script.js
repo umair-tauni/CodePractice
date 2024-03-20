@@ -23,3 +23,30 @@ addToCart("bread", 5);
 addToCart("apples", 4);
 
 console.log(cart);
+
+// Top level await
+console.log("----------Top level await----------------");
+
+// console.log("Start fetching");
+// const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+// const data = await res.json();
+// console.log(data);
+
+// console.log("Something");
+
+const getLastPost = async function () {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+
+  return { title: data.at(-1).title, text: data.at(-1).body };
+};
+
+const lastPost = getLastPost();
+console.log(lastPost);
+
+// not very clean
+lastPost.then((last) => console.log(last));
+
+// use top level await
+const lastPost2 = await getLastPost();
+console.log(lastPost2);
