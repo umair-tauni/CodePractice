@@ -1,3 +1,5 @@
+////////////////////////////////////////
+// exporting and Inmporting in ES6 Modules
 // Importing module
 // import { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
 
@@ -19,12 +21,12 @@ console.log("Importing module");
 // import add from "./shoppingCart.js";
 // add("pizza", 2);
 
-// import { addToCart, cart } from "./shoppingCart.js";
-// addToCart("pizza", 2);
-// addToCart("bread", 5);
-// addToCart("apples", 4);
+import { addToCart, cart } from "./shoppingCart.js";
+addToCart("pizza", 2);
+addToCart("bread", 5);
+addToCart("apples", 4);
 
-// console.log(cart);
+console.log(cart);
 
 /*
 // Top level await
@@ -105,7 +107,9 @@ const { addToCart } = require('./shoppingCart.js');
 
 console.log("-----------------Intoduction to NPM------------");
 
-import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+// import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+import cloneDeep from "lodash-es";
+// import cloneDeep from "lodash";
 
 const state = {
   cart: [
@@ -124,3 +128,9 @@ state.user.loggedIn = false;
 
 console.log(stateClone);
 console.log(stateDeepClone);
+
+console.log("--------Building with Parcel and NPM scripts----------");
+
+if (module.hot) {
+  module.hot.accept();
+}
